@@ -735,6 +735,7 @@ public class SpringApplication {
 		if (this.environment != null) {
 			loader.setEnvironment(this.environment);
 		}
+		// 执行 BeanDefinition 对象的 load() 加载 bean 到上下文中
 		loader.load();
 	}
 
