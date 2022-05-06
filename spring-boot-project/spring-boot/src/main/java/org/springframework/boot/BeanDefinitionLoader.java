@@ -297,7 +297,11 @@ class BeanDefinitionLoader {
 	 * 如果给定的 bean 类型符合注册条件，即不是 groovy 闭包也不是匿名类
 	 */
 	private boolean isEligible(Class<?> type) {
-		return !(type.isAnonymousClass() || isGroovyClosure(type) || hasNoConstructors(type));
+		return !(
+				type.isAnonymousClass() || // 是否是匿名内部类
+				isGroovyClosure(type) ||  // 是否是 Groovy 闭包
+				hasNoConstructors(type) // 没有构造函数
+		);
 	}
 
 	private boolean isGroovyClosure(Class<?> type) {

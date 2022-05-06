@@ -434,11 +434,11 @@ public class SpringApplication {
 			logStartupProfileInfo(context);
 		}
 		// Add boot specific singleton beans：添加引导指定的单例 beans
-		ConfigurableListableBeanFactory beanFactory = context.getBeanFactory();
-		// 添加单例 springApplicationArguments 对象
+		ConfigurableListableBeanFactory beanFactory = context.getBeanFactory(); // 得到 beanFactory
+		// 注册单例 springApplicationArguments 对象到 beanFactory 里面
 		beanFactory.registerSingleton("springApplicationArguments", applicationArguments);
 		if (printedBanner != null) {
-			// 添加单例 springBootBanner 对象
+			// 注册单例 springBootBanner 对象到 beanFactory 里面
 			beanFactory.registerSingleton("springBootBanner", printedBanner);
 		}
 		if (beanFactory instanceof AbstractAutowireCapableBeanFactory) {
@@ -724,7 +724,7 @@ public class SpringApplication {
 		if (logger.isDebugEnabled()) {
 			logger.debug("Loading source " + StringUtils.arrayToCommaDelimitedString(sources));
 		}
-		// 创建 BeanDefinition ，是bean的定义信息
+		// 创建 BeanDefinition ，是 bean 的定义信息
 		BeanDefinitionLoader loader = createBeanDefinitionLoader(getBeanDefinitionRegistry(context), sources);
 		if (this.beanNameGenerator != null) {
 			loader.setBeanNameGenerator(this.beanNameGenerator);
