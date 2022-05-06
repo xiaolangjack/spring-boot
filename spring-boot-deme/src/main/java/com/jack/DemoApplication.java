@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * Created By: yy<lanqiu@deloitte.com.cn>
  * Created At: 2022/4/28 0:10
- * <p></p>
+ * <p>
  */
 @SpringBootApplication
 public class DemoApplication {
